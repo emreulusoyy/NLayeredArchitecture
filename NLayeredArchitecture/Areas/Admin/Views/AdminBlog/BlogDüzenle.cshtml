@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Concrete
+@model Blog
+@{
+    ViewData["Title"] = "BlogDüzenle";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-header border-0">
+            <h3 class="mb-0">Haberler Güncelleme Sayfası</h3>
+        </div>
+        <div class="card-body">
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Haber ID</label>
+                    @Html.TextBoxFor(x => x.BlogID, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Ana Başlık</label>
+                    @Html.TextBoxFor(x => x.AnaBaslik, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Alt Başlık</label>
+                    @Html.TextBoxFor(x => x.AltBaslik, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Haber Tarihi</label>
+                    @Html.TextBoxFor(x => x.BlogTarih, new { @class = "form-control" })
+                </div>
+                  <div class="form-group">
+                    <label>Haber Image</label>
+                    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                <button class="btn btn-dark">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>
+
