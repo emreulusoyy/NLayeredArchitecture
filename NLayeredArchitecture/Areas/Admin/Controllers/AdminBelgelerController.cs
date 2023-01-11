@@ -34,5 +34,27 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
             bm.TUpdate(p);
             return RedirectToAction("Index");
         }
+
+        public IActionResult BelgeSil(int id)
+        {
+            var values = bm.TGetByID(id);
+            bm.TDelete(values);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult BelgeEkle()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult BelgeEkle(Belgeler p)
+        {
+            bm.TAdd(p);
+            return RedirectToAction("Index");
+
+        }
     }
 }

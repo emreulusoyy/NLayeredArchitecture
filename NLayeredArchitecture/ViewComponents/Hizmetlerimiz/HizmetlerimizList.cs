@@ -2,12 +2,12 @@
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NLayeredArchitecture.Controllers
+namespace NLayeredArchitecture.ViewComponents.Hizmetlerimiz
 {
-    public class ServicesController : Controller
+    public class HizmetlerimizList:ViewComponent
     {
         HizmetlerManager hm = new HizmetlerManager(new EfHizmetlerDal());
-        public IActionResult Index()
+        public IViewComponentResult Invoke()
         {
             var values = hm.TGetList();
             return View(values);

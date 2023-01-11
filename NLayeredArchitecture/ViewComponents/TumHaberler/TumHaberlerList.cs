@@ -2,15 +2,15 @@
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NLayeredArchitecture.Controllers
+namespace NLayeredArchitecture.ViewComponents.TumHaberler
 {
-    public class NewsController : Controller
+    public class TumHaberlerList:ViewComponent
     {
         BlogManager bm = new BlogManager(new EfBlogDal());
-        public IActionResult Index()
+        public IViewComponentResult Invoke()
         {
             var values = bm.TGetList();
-            return View(values);
+            return View(values);    
         }
     }
 }

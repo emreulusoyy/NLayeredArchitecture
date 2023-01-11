@@ -2,15 +2,15 @@
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NLayeredArchitecture.Controllers
+namespace NLayeredArchitecture.ViewComponents.TümHizmetler
 {
-    public class ServicesController : Controller
+    public class TumHizmetlerList:ViewComponent
     {
         HizmetlerManager hm = new HizmetlerManager(new EfHizmetlerDal());
-        public IActionResult Index()
+        public IViewComponentResult Invoke()
         {
             var values = hm.TGetList();
-            return View(values);
+            return View(values);    
         }
     }
 }

@@ -1,0 +1,57 @@
+﻿@model List<EntityLayer.Concrete.Hakkında>
+
+
+<!-- Section: home End -->
+<!-- Section: About -->
+<section>
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                @foreach (var x in Model)
+                {
+                    <div class="col-lg-6">
+                        <div class="about-image-layer1 rs-about-image-layer1" style="margin-top:60px!important">
+
+
+
+                            <div class="about-thumb">
+
+                                <img src="@x.HakkındaImage" alt="Image">
+                            </div>
+                            <div class="trusted-number">
+                                <p>Tecrübe</p>
+                                <h4 class="number m-0">20 Yıl</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content pr-30 pl-30 pl-md--0 pr-md--0" data-tm-padding-top="55">
+                            <div class="tm-sc-section-title section-title mb-50">
+                                <div class="title-wrapper mb-0">
+                                    <div class="title-icon-img">
+                                        <img src="/images/icon.png" alt="Image">
+                                    </div>
+                                    <h2 class="title">@x.HakkındaBaslik</h2>
+                                    <p class="paragraph mb-0">
+                                        @x.HakkındaAcıklama
+
+                                    </p>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="tm-floating-objects">
+        <span class="floating-object-1" data-tm-bg-img="images/shape/about-01.png" data-tm-width="256" data-tm-height="349" data-tm-top="auto" data-tm-bottom="-8" data-tm-left="75" data-tm-opacity="1"></span>
+        <span class="floating-object-2 tm-animation-floating" data-tm-bg-img="images/shape/about-02.png" data-tm-width="90" data-tm-height="80" data-tm-top="150" data-tm-bottom="auto" data-tm-left="180" data-tm-opacity="1"></span>
+        <span class="floating-object-3" data-tm-bg-img="images/shape/about-03.png" data-tm-width="174" data-tm-height="258" data-tm-top="auto" data-tm-bottom="0" data-tm-right="100" data-tm-left="auto" data-tm-opacity="1"></span>
+        <span class="floating-object-4 tm-animation-slide-horizontal" data-tm-bg-img="images/shape/about-04.png" data-tm-width="90" data-tm-height="80" data-tm-top="40%" data-tm-bottom="auto" data-tm-right="120" data-tm-left="auto" data-tm-opacity="1"></span>
+    </div>
+</section>
+
+

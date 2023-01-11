@@ -1,0 +1,16 @@
+﻿@model List<EntityLayer.Concrete.AltSlider>
+@foreach(var x in Model)
+{
+    
+
+<section class="text-center bg-img-cover bg-img-center-top" data-tm-bg-img="@x.SliderImage">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 m-auto text-center">
+                <div class="m-auto mb-25" data-tm-width="75" data-tm-height="63" data-tm-bg-img="/images/icons/heart01.png"></div>
+                <h2 class="text-white rs-divider-title font-weight-900 mb-40 mt-0">@x.SliderBaslik </h2>
+            </div>
+        </div>
+    </div>
+</section>
+}

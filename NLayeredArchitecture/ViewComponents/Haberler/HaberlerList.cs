@@ -2,12 +2,12 @@
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NLayeredArchitecture.Controllers
+namespace NLayeredArchitecture.ViewComponents.Haberler
 {
-    public class NewsController : Controller
+    public class HaberlerList:ViewComponent
     {
         BlogManager bm = new BlogManager(new EfBlogDal());
-        public IActionResult Index()
+        public IViewComponentResult Invoke()
         {
             var values = bm.TGetList();
             return View(values);
