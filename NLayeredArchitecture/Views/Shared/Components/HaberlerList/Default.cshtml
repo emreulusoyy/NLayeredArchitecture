@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="row">
                 @foreach(var x in Model){
                 <div class="col-md-6 col-lg-4">
@@ -26,7 +26,8 @@
                                 <div class="post-thumb">
                                     <div class="post-thumb-inner">
                                         <div class="thumb">
-                                            <img class="w-100" src="@x.BlogImage" alt="Image">
+                                                @*<img class="w-100" src="~/wwwroot/SliderImages/@x.BlogImage" alt="Image">*@
+                                                <img class="w-100" src="~/sliderimages/@x.BlogImage" />
                                         </div>
 
                                         <div class="meta-date">@x.BlogTarih</div>

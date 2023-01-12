@@ -18,6 +18,7 @@
                             <th>Hizmet Başlığı</th>
                             <th>Hizmet Fotoğrafı</th>
                             <th>Güncelle</th>
+                            <th>Sil</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,10 +30,12 @@
                                 <td>@item.HizmetlerImage</td>
 
                                 <td><a href="/Admin/AdminHizmetler/HizmetlerDüzenle/@item.HizmetlerID" class="btn btn-outline-success">Güncelle</a></td>
+                                <td><a href="/Admin/Adminhizmetler/HizmetSil/@item.HizmetlerID" class="btn btn-outline-danger">Sil</a></td>
                             </tr>
                         }
                     </tbody>
                 </table>
+                <a href="/Admin/AdminHizmetler/HizmetEkle/" class="btn btn-outline-info">Yeni Hizmet Ekle</a>
 
             </div>
         </div>

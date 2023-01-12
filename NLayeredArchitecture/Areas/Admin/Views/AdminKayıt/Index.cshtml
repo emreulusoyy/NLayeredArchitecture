@@ -1,4 +1,11 @@
-﻿
+﻿@model NLayeredArchitecture.Areas.Admin.Models.AdminKayitPaneli
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
 <!DOCTYPE HTML>
 <html lang="zxx">
 
@@ -8,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
 	<meta name="keywords" content="Full Screen Enroll Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-	<script>
+	@*<script>
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
 		}, false);
@@ -16,7 +23,7 @@
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
-	</script>
+	</script>*@
 	<!-- Meta tag Keywords -->
 	<!-- css files -->
 	<link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
@@ -47,33 +54,48 @@
 			<div class="sub-main-w3">
 				<h3>Şimdi Kaydolun</h3>
 				<p>Bu işlem birkaç saniyeden fazla sürmez</p>
-				<form action="#" method="post">
+				<form  method="post">
 					<div class="form-style-agile">
 						<label>Ad Soyad</label>
 						<div class="pom-agile">
 							<span class="fa fa-user"></span>
-							<input placeholder="Ad Soyad bilginizi giriniz..." name="Name" type="text" required="">
+							<input placeholder="Ad Soyad bilginizi giriniz..." asp-for="Ad"  type="text" required="">
 						</div>
 					</div>
+					<div class="form-style-agile">
+						<label>Ad Soyad</label>
+						<div class="pom-agile">
+							<span class="fa fa-user"></span>
+							<input placeholder="Ad Soyad bilginizi giriniz..." asp-for="Soyad" type="text" required="">
+						</div>
+					</div>
+					<div class="form-style-agile">
+						<label>Kullanıcı Adı</label>
+						<div class="pom-agile">
+							<span class="fa fa-user"></span>
+							<input placeholder="Ad Soyad bilginizi giriniz..." asp-for="UserName" type="text" required="">
+						</div>
+					</div>
+
 					<div class="form-style-agile">
 						<label>Email</label>
 						<div class="pom-agile">
 							<span class="fa fa-envelope-open"></span>
-							<input placeholder="Mail adresinizi giriniz..." name="Email" type="email" required="">
+							<input placeholder="Mail adresinizi giriniz..."  asp-for="Mail" type="email" required="">
 						</div>
 					</div>
 					<div class="form-style-agile">
 						<label>Şifre</label>
 						<div class="pom-agile">
 							<span class="fa fa-key"></span>
-							<input placeholder="Şifrenizi giriniz..." name="Password" type="password" id="password1" required="">
+							<input placeholder="Şifrenizi giriniz..." asp-for="PassWord" type="password" id="password1" required="">
 						</div>
 					</div>
 					<div class="form-style-agile">
 						<label>Şifre Tekrar</label>
 						<div class="pom-agile">
 							<span class="fa fa-key"></span>
-							<input placeholder="Şifrenizi tekrar giriniz..." name="Confirm Password" type="password" id="password2" required="">
+							<input placeholder="Şifrenizi tekrar giriniz..." asp-for="ConfirmPassWord" type="password" id="password2" required="">
 						</div>
 					</div>
 					<input type="submit" value="Kaydol">

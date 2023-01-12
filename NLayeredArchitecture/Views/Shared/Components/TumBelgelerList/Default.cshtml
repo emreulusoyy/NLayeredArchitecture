@@ -6,13 +6,13 @@
         <div class="section-content">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h2 class="title">Haberle</h2>
+                    <h2 class="title">Belgeler</h2>
                     <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
                         <div class="breadcrumbs">
                             <span><a href="/Anasayfa" rel="home">Anasayfa</a></span>
-                            <span><i class="fa fa-angle-right"></i></span>
 
-                            <span class="active">Haberler</span>
+                            <span><i class="fa fa-angle-right"></i></span>
+                            <span class="active">Belgelerimiz</span>
                         </div>
                     </nav>
                 </div>
@@ -22,79 +22,60 @@
 </section>
 <!-- Section: home End -->
 <!-- Section: Service -->
-<section class="bg-img-right-top bg-img-cover bg-img-no-repeat" data-tm-bg-img="/images/bg/bg1.png">
-    <div class="container">
+<section>
+    <div class="container pb-70">
         <div class="section-content">
-
             <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-current-style1 mb-lg-30">
-                        <article class="post">
-                            <div class="entry-header">
-                                <div class="post-thumb">
-                                    <div class="post-thumb-inner">
-                                        <div class="thumb">
-                                            <img class="w-100" src="/images/blog/1.jpg" alt="Image">
-                                        </div>
+                <div class="col-md-12">
+                    <div class="tm-sc-gallery tm-sc-gallery-grid gallery-style1-basic">
 
-                                        <div class="meta-date">05.01.2023</div>
+                        <!-- End Isotope Filter -->
+                        <!-- Isotope Gallery Grid -->
+                        <div id="gallery-holder-618422" class="isotope-layout grid-3 gutter-15 clearfix lightgallery-lightbox">
+                            <div class="isotope-layout-inner">
+                                <!-- Isotope Item Start -->
+                                @foreach(var x in Model){
+                                <div class="isotope-item cat1">
+                                    <div class="isotope-item-inner">
+                                        <div class="tm-gallery">
+                                            <div class="tm-gallery-inner">
+                                                <div class="thumb">
+                                                    <a href="#">
+                                                        <img width="672" height="448" src="@x.BelgeImage" class="" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="tm-gallery-content-wrapper">
+                                                    <div class="tm-gallery-content">
+                                                        <div class="tm-gallery-content-inner">
+                                                            <div class="icons-holder-inner">
+                                                                <div class="styled-icons icon-dark icon-circled icon-theme-colored1">
+                                                                        <a class="lightgallery-trigger styled-icons-item" data-exthumbimage="@x.BelgeAcilirImage" data-src="@x.BelgeAcilirImage" title="Gallery 1" href="@x.BelgeAcilirImage"><i class="fa fa-plus"></i></a>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="title-holder">
+                                                                <h5 class="title"><a href="#"></a></h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="entry-content">
-                                <h6 class="entry-title mt-0"><a href="/HaberDetay">Eco System Responsible For Wind Generators</a></h6>
-                                <div class="post-btn-readmore"><a href="/HaberDetay" class="btn btn-plain-text-with-arrow">Haberin Ddevamı</a></div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-current-style1 mb-lg-30">
-                        <article class="post">
-                            <div class="entry-header">
-                                <div class="post-thumb">
-                                    <div class="post-thumb-inner">
-                                        <div class="thumb">
-                                            <img class="w-100" src="/images/blog/2.jpg" alt="Image">
-                                        </div>
+                                }
+                                <!-- Isotope Item End -->
+                                <!-- Isotope Item Start -->
+                                
+                                <!-- Isotope Item End -->
 
-                                        <div class="meta-date">06.01.2023</div>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="entry-content">
-                                <h6 class="entry-title mt-0"><a href="/HaberDetay">Eco System Responsible For Green Energy</a></h6>
-                                <div class="post-btn-readmore"><a href="/HaberDetay" class="btn btn-plain-text-with-arrow">Haberin Ddevamı</a></div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-current-style1 mb-30">
-                        <article class="post">
-                            <div class="entry-header">
-                                <div class="post-thumb">
-                                    <div class="post-thumb-inner">
-                                        <div class="thumb">
-                                            <img class="w-100" src="/images/blog/1.jpg" alt="Image">
-                                        </div>
-
-                                        <div class="meta-date">05.01.2023</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="entry-content">
-                                <h6 class="entry-title mt-0"><a href="/HaberDetay">Eco System Responsible For Wind Generators</a></h6>
-                                <div class="post-btn-readmore"><a href="/HaberDetay" class="btn btn-plain-text-with-arrow">Haberin Ddevamı</a></div>
-                            </div>
-                        </article>
+                        </div>
+                        <!-- End Isotope Gallery Grid -->
                     </div>
 
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </section>

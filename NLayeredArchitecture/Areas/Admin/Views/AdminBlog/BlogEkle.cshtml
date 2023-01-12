@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewData["Title"] = "SliderEkle";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-header border-0">
+            <h3 class="mb-0">Haber Ekleme Sayfası</h3>
+        </div>
+        <div class="card-body">
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Haber ID</label>
+                    @Html.TextBoxFor(x => x.BlogID, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Haber Başlığı</label>
+                    @Html.TextBoxFor(x => x.BlogBaslik, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Haber Alt Başlık</label>
+                    @Html.TextBoxFor(x => x.AltBaslik, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Haber Resmi</label>
+                    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+

@@ -919,9 +919,9 @@ body.has-fixed-footer .top-sliders-container {
         height: 50%;
         width: 100%;
         background: #181818;
-        background: -moz-linear-gradient(top, #000000, rgba(0, 0, 0, 0.55), transparent);
-        background: -webkit-linear-gradient(top, #000000, rgba(0, 0, 0, 0.55), transparent);
-        background: linear-gradient(to top, #000000, rgba(0, 0, 0, 0.55), transparent);
+        background: -moz-linear-gradient(top, #191c24, rgba(0, 0, 0, 0.55), transparent);
+        background: -webkit-linear-gradient(top, #191c24, rgba(0, 0, 0, 0.55), transparent);
+        background: linear-gradient(to top, #191c24, rgba(0, 0, 0, 0.55), transparent);
         content: "";
         z-index: 1; }
     .box-hover-effect .effect-wrapper .hover-link {

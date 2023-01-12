@@ -3,18 +3,17 @@
 namespace NLayeredArchitecture.Areas.Admin.Models
 {
     public class AdminKayitPaneli
+
     {
         [Required(ErrorMessage = "Lütfen Adınızı giriniz")]
-        public string Name { get; set; }
-
+        public string Ad { get; set; }
 
         [Required(ErrorMessage = "Lütfen Soyadınızı giriniz")]
-        public string Surname { get; set; }
+        public string Soyad { get; set; }
 
 
-        [Required(ErrorMessage = "Lütfen ResimUrl giriniz giriniz")]
-        public string ImageUrl { get; set; }
-
+        [Required(ErrorMessage = "Lütfen mail adresinizi giriniz")]
+        public string Mail { get; set; }
 
         [Required(ErrorMessage = "Lütfen kullanıcı Adını giriniz")]
         public string UserName { get; set; }
@@ -29,7 +28,6 @@ namespace NLayeredArchitecture.Areas.Admin.Models
         public string ConfirmPassWord { get; set; }
 
 
-        [Required(ErrorMessage = "Lütfen mail adresinizi giriniz")]
-        public string Mail { get; set; }
+        
     }
 }

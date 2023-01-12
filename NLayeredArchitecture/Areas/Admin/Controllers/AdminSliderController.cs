@@ -34,5 +34,30 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
             sm.TUpdate(p);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        [Route("SliderEkle/{id}")]
+        public IActionResult SliderEkle()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [Route("SliderEkle/{id}")]
+        public IActionResult SliderEkle(Slider p)
+        {
+            sm.TAdd(p);
+            return RedirectToAction("Index");
+
+        }
+
+        [Route("SliderSil/{id}")]
+        public IActionResult SliderSil(int id)
+        {
+            var values = sm.TGetByID(id);
+            sm.TDelete(values);
+            return RedirectToAction("Index");
+        }
     }
 }

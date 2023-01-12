@@ -338,7 +338,7 @@ label.check {
 }
 
 .w3ls-login input[type=submit] {
-    color: #000000;
+    color: #191c24;
     font-weight: 100;
     width: 100%;
     padding: 0.4em 0;
@@ -477,7 +477,7 @@ label.check {
         padding: 10px 15px;
     }
     .w3ls-login input[type=submit] {
-        color: #000000;
+        color: #191c24;
         font-weight: 100;
         width: 100%;
         padding: 0.3em 0;

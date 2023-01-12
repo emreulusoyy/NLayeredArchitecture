@@ -2,6 +2,7 @@
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using NLayeredArchitecture.Areas.Admin.Models;
 
 namespace NLayeredArchitecture.Areas.Admin.Controllers
 {
@@ -23,7 +24,17 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         public IActionResult BelgelerDüzenle(int id)
         {
             var values = bm.TGetByID(id);
-            return View(values);
+            BelgelerDüzenle belge = new BelgelerDüzenle()
+            {
+                BelgeID = values.BelgeID,
+                BelgeImage = values.BelgeImage,
+                BelgeAcilirImage = values.BelgeAcilirImage,
+                
+
+            };
+
+            return View(belge);
+          
         }
 
         [HttpPost]
@@ -35,6 +46,7 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [Route("BelgeSil/{id}")]
         public IActionResult BelgeSil(int id)
         {
             var values = bm.TGetByID(id);
@@ -43,6 +55,7 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         }
 
         [HttpGet]
+        [Route("BelgeEkle/{id}")]
         public IActionResult BelgeEkle()
         {
 
@@ -50,6 +63,7 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [Route("BelgeEkle/{id}")]
         public IActionResult BelgeEkle(Belgeler p)
         {
             bm.TAdd(p);

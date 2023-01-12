@@ -35,5 +35,30 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
             hm.TUpdate(p);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        [Route("HizmetEkle/{id}")]
+        public IActionResult HizmetEkle()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [Route("HizmetEkle/{id}")]
+        public IActionResult HizmetEkle(Hizmetler p)
+        {
+            hm.TAdd(p);
+            return RedirectToAction("Index");
+
+        }
+
+        [Route("HizmetSil/{id}")]
+        public IActionResult HizmetSil(int id)
+        {
+            var values = hm.TGetByID(id);
+            hm.TDelete(values);
+            return RedirectToAction("Index");
+        }
     }
 }

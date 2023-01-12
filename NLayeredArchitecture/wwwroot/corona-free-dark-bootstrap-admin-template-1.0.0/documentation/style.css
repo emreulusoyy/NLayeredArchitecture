@@ -92,7 +92,7 @@ h6 {
 .documentation .left-sidebar {
   width: 260px;
   padding: 20px 30px;
-  background-color: #000000;
+  background-color: #191c24;
   position: fixed;
   top: 0;
   left: 0;
@@ -299,7 +299,7 @@ h6 {
 }
 
 .pws_tabs_list {
-  background: #000000;
+  background: #191c24;
 }
 
 .pws_tabs_container.pws_tabs_horizontal_bottom .pws_tabs_controll {

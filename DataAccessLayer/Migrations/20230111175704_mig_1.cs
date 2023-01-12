@@ -57,9 +57,9 @@ namespace DataAccessLayer.Migrations
                 {
                     HakkındaID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HakkındaBaslik = table.Column<int>(type: "int", nullable: false),
-                    HakkındaAcıklama = table.Column<int>(type: "int", nullable: false),
-                    HakkındaImage = table.Column<int>(type: "int", nullable: false)
+                    HakkındaBaslik = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HakkındaAcıklama = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HakkındaImage = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
