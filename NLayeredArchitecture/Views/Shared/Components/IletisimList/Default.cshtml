@@ -1,0 +1,35 @@
+﻿@model List< EntityLayer.Concrete.Iletisim>
+<div class="col-md-12 col-lg-3">
+    <div class="tm-widget-contact-info contact-info-style1 " data-tm-margin-top="0">
+        <h4 class="" style="margin-bottom: 30px; font-size: 1.4rem;color:white!important;margin-top:0px!important">Hızlı İletişim</h4>
+        @*<div class="thumb" data-tm-margin-bottom="48">
+        <img alt="Logo" width="200" src="/images/logo-wide-white.png">
+        </div>*@
+
+        <ul class="mb-30">
+            @foreach(var x in Model)
+            {
+                
+            
+            <li class="contact-phone">
+                <div class="icon"><img src="/images/icons/c1.png" alt="Icon"></div>
+                <div class="text">
+                    <a href="tel:+510-455-6735">@x.TelefonNo.</a>
+                    <span>Telefon Numarası</span>
+                </div>
+            </li>
+            <li class="contact-email">
+                <div class="icon"><img src="/images/icons/c2.png" alt="Icon"></div>
+                <div class="text">
+                    <a href="mailto:info@vericevre.com">@x.Email</a>
+                    <span>E-mail Adresi</span>
+                </div>
+            </li>
+            <li class="contact-address border-0">
+                <div class="icon"><img src="/images/icons/c3.png" alt="Icon"></div>
+                <div class="text"><span class="font-size-15 text-white">@x.Adres</span><span>Adres</span></div>
+            </li>
+            }
+        </ul>
+    </div>
+</div>

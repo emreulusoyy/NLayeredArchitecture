@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/style.css">
- 
-   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="description" content="veri çevre">
     <meta name="keywords" content="veri çevre">
@@ -84,13 +84,7 @@
             <div class="header-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-auto header-top-left align-self-center text-center text-xl-start">
-                            <ul class="element contact-info">
-                                <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i> Tel: 0 262 351 29 66</li>
-                                <li class="contact-email"><i class="fa fa-envelope font-icon sm-display-block"></i> info@vericevre.com</li>
-                                <li class="contact-address"><i class="fa fa-map font-icon sm-display-block"></i> Arslanbey Organize Sanayi Bölgesi Mah. 1. Cad. No:2/4 Kartepe, Kocaeli</li>
-                            </ul>
-                        </div>
+                        @await Component.InvokeAsync("UstIletisimList")
                         <div class="col-xl-auto ms-xl-auto header-top-right align-self-center text-center text-xl-end">
                             <div class="element pt-0 pb-0">
                                 <ul class="styled-icons icon-dark icon-theme-colored1 icon-circled clearfix">
@@ -174,44 +168,17 @@
                 <div class="footer-widget-area pt-120">
                     <div class="container pb-40">
                         <div class="row">
-                            <div class="col-md-12 col-lg-3">
-                                <div class="tm-widget-contact-info contact-info-style1 " data-tm-margin-top="0">
-                                    <h4 class="" style="margin-bottom: 30px; font-size: 1.4rem;color:white!important;margin-top:0px!important">Hızlı İletişim</h4>
-                                    @*<div class="thumb" data-tm-margin-bottom="48">
-                                    <img alt="Logo" width="200" src="/images/logo-wide-white.png">
-                                    </div>*@
-                                    <ul class="mb-30">
-                                        <li class="contact-phone">
-                                            <div class="icon"><img src="/images/icons/c1.png" alt="Icon"></div>
-                                            <div class="text">
-                                                <a href="tel:+510-455-6735">+510-455-6735</a>
-                                                <span>Phone line</span>
-                                            </div>
-                                        </li>
-                                        <li class="contact-email">
-                                            <div class="icon"><img src="/images/icons/c2.png" alt="Icon"></div>
-                                            <div class="text">
-                                                <a href="mailto:info@vericevre.com">info@vericevre.com</a>
-                                                <span>Email address</span>
-                                            </div>
-                                        </li>
-                                        <li class="contact-address border-0">
-                                            <div class="icon"><img src="/images/icons/c3.png" alt="Icon"></div>
-                                            <div class="text"><span class="font-size-15 text-white">20 Broklyn Street, USA</span><span>Visit us</span></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            @await Component.InvokeAsync("IletisimList")
                             <div class="col-md-6 col-lg-3">
                                 <div class="widget widget_nav_menu ml-25">
-                                    <h4 class="widget-title">Menu</h4>
+                                    <h4 class="widget-title">Menü</h4>
                                     <div class="menu-footer-page-list">
                                         <ul id="footer-page-list" class="menu">
-                                            <li><a href="/Kurumsal">Kurumsal</a></li>
-                                            <li><a href="/Hizmetler">Hizmetlerimiz</a></li>
-                                            <li><a href="/Haberler">Haberler</a></li>
-                                            <li><a href="/Belgeler">Belgeler</a></li>
-                                            <li><a href="/iletisim">İletişim</a></li>
+                                            <li><a href="/About/Index">Kurumsal</a></li>
+                                            <li><a href="/Services/Index">Hizmetlerimiz</a></li>
+                                            <li><a href="/News/Index">Haberler</a></li>
+                                            <li><a href="/Documents/Index">Belgeler</a></li>
+                                            <li><a href="/İletisim/Index">İletişim</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -221,16 +188,15 @@
                                 <div class="widget contact-info contact-info-style1">
                                     <h4 class="widget-title mb-40">Haber Bülteni</h4>
                                     <p class="description mb-40 font-size-15">Hizmetlerimiz hakkında bilgi almak için bizi takip edebilirsiniz.</p>
-                                    <!-- Mailchimp Subscription Form-->
-                                    <form id="mailchimp-subscription-form10" class="newsletter-form cp-newsletter m-0 p-0">
+                                    @using (Html.BeginForm("SaveMail", "HaberBulteni", FormMethod.Post))
+                                    {
                                         <div class="input-group">
-                                            <input type="email" id="mce-EMAIL2" class="form-control font-size-13 border-radius-0" placeholder="E-posta" name="EMAIL" value="" data-tm-bg-color="#272f2a" data-tm-height="81px">
+                                            <input type="email" id="mce-EMAIL2" class="form-control font-size-13 border-radius-0" placeholder="E-posta" name="Mail" value="" data-tm-bg-color="#272f2a" data-tm-height="81px">
                                             <div class="input-group-append tm-sc tm-sc-button">
                                                 <button type="submit" class="btn text-theme-colored1 btn-sm btn-flat border-0 box-shadow-none font-size-13" data-tm-bg-color="#272f2a" data-tm-height="81px"><i class="fa fa-arrow-right"></i></button>
                                             </div>
                                         </div>
-                                    </form>
-
+                                    }
                                     <!-- Mailchimp Subscription Form Validation-->
                                     <script>
                                         (function ($) {
@@ -254,6 +220,7 @@
                                         })(jQuery);
                                     </script>
                                 </div>
+
                             </div>
                         </div>
                     </div>

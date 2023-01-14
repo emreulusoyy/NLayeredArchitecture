@@ -24,6 +24,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Iletisim> Iletisims { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<iletisimFormu> iletisimFormus { get; set; }
+        public DbSet<HaberBulteni> HaberBultenis { get; set; }
 
     }
 }

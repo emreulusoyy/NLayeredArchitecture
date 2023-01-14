@@ -76,9 +76,25 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("HizmetEkle")]
-        public IActionResult HizmetEkle(Hizmetler p)
+        public async Task< IActionResult> HizmetEkle(HizmetlerDuzenle p)
         {
-            hm.TAdd(p);
+            var imagename = "";
+            Hizmetler b = new Hizmetler();
+            if (p.HizmetlerImage != null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+                var extention = Path.GetExtension(p.ImageFile.FileName);
+                imagename = Guid.NewGuid() + extention;
+                var saveLocation = resource + "/wwwroot/HizmetResimleri/" + imagename;
+                var stream = new FileStream(saveLocation, FileMode.Create);
+                await p.ImageFile.CopyToAsync(stream);
+            }
+            b.HizmetlerBaslik = p.HizmetlerBaslik;
+            b.HizmetlerID = p.HizmetlerID;
+            b.HizmetlerAcıklama = p.HizmetlerAcıklama;
+            b.HizmetlerImage = p.HizmetlerImage;
+
+            hm.TAdd(b);
             return RedirectToAction("Index");
 
         }

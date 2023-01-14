@@ -11,7 +11,7 @@ namespace NLayeredArchitecture.Areas.Admin.ViewComponents.Dashboard
         {
             ViewBag.v1 = c.Blogs.Count();
             ViewBag.v2 = c.Belgelers.Count();
-            ViewBag.v3 = c.Hizmetlers.Count();
+            ViewBag.v3 = c.HaberBultenis.Count();
             return View();
         }
     }

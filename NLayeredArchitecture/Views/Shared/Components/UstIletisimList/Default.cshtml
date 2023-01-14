@@ -1,0 +1,14 @@
+﻿@model List<EntityLayer.Concrete.Iletisim>
+
+<div class="col-xl-auto header-top-left align-self-center text-center text-xl-start">
+    <ul class="element contact-info">
+        @foreach(var x in Model)
+        {
+            
+        
+        <li class="contact-phone"><i class="fa fa-phone font-icon sm-display-block"></i>@x.TelefonNo</li>
+        <li class="contact-email"><i class="fa fa-envelope font-icon sm-display-block"></i> @x.Email</li>
+        <li class="contact-address"><i class="fa fa-map font-icon sm-display-block"></i> @x.Adres</li>
+        }
+    </ul>
+</div>

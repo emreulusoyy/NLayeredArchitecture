@@ -12,5 +12,7 @@ namespace NLayeredArchitecture.Controllers
             var values = hm.TGetByID(id);
             return View(values);
         }
+
+       
     }
 }

@@ -76,7 +76,7 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Route("BelgeEkle/{id}")]
+        [Route("BelgeEkle")]
         public IActionResult BelgeEkle()
         {
 
@@ -84,10 +84,25 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Route("BelgeEkle/{id}")]
-        public IActionResult BelgeEkle(Belgeler p)
+        [Route("BelgeEkle")]
+        public async Task< IActionResult> BelgeEkle(BelgelerDüzenle p)
         {
-            bm.TAdd(p);
+            var imagename = "";
+            Belgeler b = new Belgeler();
+            if (p.BelgeImage != null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+                var extention = Path.GetExtension(p.ImageFile.FileName);
+                imagename = Guid.NewGuid() + extention;
+                var saveLocation = resource + "/wwwroot/BelgeResimleri/" + imagename;
+                var stream = new FileStream(saveLocation, FileMode.Create);
+                await p.ImageFile.CopyToAsync(stream);
+            }
+            b.BelgeBaslik = p.BelgeBaslik;
+            b.BelgeID = p.BelgeID;
+            b.BelgeAcilirImage = p.BelgeAcilirImage;
+            b.BelgeImage = p.BelgeImage;
+            bm.TAdd(b);
             return RedirectToAction("Index");
 
         }
