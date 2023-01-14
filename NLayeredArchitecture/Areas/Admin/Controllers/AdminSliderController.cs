@@ -2,6 +2,11 @@
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using NLayeredArchitecture.Areas.Admin.Models;
+using System.IO;
+using System;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace NLayeredArchitecture.Areas.Admin.Controllers
 {
@@ -20,23 +25,50 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
 
         [HttpGet]
         [Route("SliderDüzenle/{id}")]
-        public IActionResult SliderDüzenle(int id)
+        public  IActionResult SliderDüzenle(int id)
         {
+
             var values = sm.TGetByID(id);
-            return View(values);
+           
+            AnaSlider slider = new AnaSlider()
+            {
+                SliderID = values.SliderID,
+                SliderBaslik = values.SliderBaslik,
+                SliderAltBaslik = values.SliderAltBaslik,
+                SliderImage = values.SliderImage,
+            };
+            return View(slider);
         }
 
         [HttpPost]
         [Route("SliderDüzenle/{id}")]
-        public IActionResult SliderDüzenle(Slider p)
+        public async Task< IActionResult> SliderDüzenle(AnaSlider p)
         {
+            var imagename = "";
+            if (p.ImageFile != null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+                var extention = Path.GetExtension(p.ImageFile.FileName);
+                imagename = Guid.NewGuid() + extention;
+                var saveLocation = resource + "/wwwroot/SliderImages/" + imagename;
+                var stream = new FileStream(saveLocation, FileMode.Create);
+                await p.ImageFile.CopyToAsync(stream);
+            }
+            Slider slider = new Slider()
+            {
+                SliderID = p.SliderID,
+                SliderBaslik = p.SliderBaslik,
+                SliderAltBaslik = p.SliderAltBaslik,
+                SliderImage = imagename
 
-            sm.TUpdate(p);
+            };
+
+            sm.TUpdate(slider);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        [Route("SliderEkle/{id}")]
+        [Route("SliderEkle")]
         public IActionResult SliderEkle()
         {
 
@@ -44,7 +76,7 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Route("SliderEkle/{id}")]
+        [Route("SliderEkle")]
         public IActionResult SliderEkle(Slider p)
         {
             sm.TAdd(p);

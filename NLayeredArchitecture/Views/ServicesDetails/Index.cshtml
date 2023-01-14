@@ -1,4 +1,5 @@
-﻿
+﻿@model EntityLayer.Concrete.Hizmetler
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -57,9 +58,9 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <img alt="images" src="/images/bg/slide2.jpg">
-                    <h3 class="mt-20 mb-10">Hizmet 1</h3>
-                    <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints strategies to ensure proactive.</p>
+                    <img alt="images" src="/HizmetResimleri/@Model.HizmetlerImage">
+                    <h3 class="mt-20 mb-10">@Model.HizmetlerBaslik</h3>
+                    <p>@Model.HizmetlerAcıklama</p>
                 </div>
             </div>
         </div>

@@ -2,6 +2,11 @@
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using NLayeredArchitecture.Areas.Admin.Models;
+using System.IO;
+using System;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace NLayeredArchitecture.Areas.Admin.Controllers
 {
@@ -24,15 +29,40 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         public IActionResult HakkimdaDüzenle(int id)
         {
             var values = hm.TGetByID(id);
-            return View(values);
+            HakkimdaDüzenle blog = new HakkimdaDüzenle()
+            {
+                HakkındaID = values.HakkındaID,
+                HakkındaBaslik = values.HakkındaBaslik,
+                HakkındaAcıklama = values.HakkındaAcıklama,
+                HakkındaImage = values.HakkındaImage,
+            };
+
+            return View(blog);
         }
 
         [HttpPost]
         [Route("HakkimdaDüzenle/{id}")]
-        public IActionResult HakkimdaDüzenle(Hakkında p)
+        public async Task< IActionResult> HakkimdaDüzenle(HakkimdaDüzenle p)
         {
+            var imagename = "";
+            if (p.ImageFile != null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+                var extention = Path.GetExtension(p.ImageFile.FileName);
+                imagename = Guid.NewGuid() + extention;
+                var saveLocation = resource + "/wwwroot/HakkindaResimleri/" + imagename;
+                var stream = new FileStream(saveLocation, FileMode.Create);
+                await p.ImageFile.CopyToAsync(stream);
+            }
+            Hakkında blog = new Hakkında()
+            {
+                HakkındaID = p.HakkındaID,
+                HakkındaBaslik = p.HakkındaBaslik,
+                HakkındaAcıklama = p.HakkındaAcıklama,
+                HakkındaImage = imagename
+            };
 
-            hm.TUpdate(p);
+            hm.TUpdate(blog);
             return RedirectToAction("Index");
         }
     }

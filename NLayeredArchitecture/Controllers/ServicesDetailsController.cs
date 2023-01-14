@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 
 namespace NLayeredArchitecture.Controllers
 {
     public class ServicesDetailsController : Controller
     {
-        
-        public IActionResult Index()
+        HizmetlerManager hm = new HizmetlerManager(new EfHizmetlerDal());
+        public IActionResult Index(int id)
         {
-            return View();
+            var values = hm.TGetByID(id);
+            return View(values);
         }
     }
 }

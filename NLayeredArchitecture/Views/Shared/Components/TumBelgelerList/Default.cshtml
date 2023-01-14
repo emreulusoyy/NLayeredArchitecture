@@ -1,6 +1,7 @@
 ﻿@model List<EntityLayer.Concrete.Belgeler>
 
 
+<!-- Section: page title -->
 <section class="page-title layer-overlay section-typo-light bg-img-center" data-tm-bg-img="/images/bg/bg1.jpg">
     <div class="container pt-90 pb-90">
         <div class="section-content">
@@ -21,7 +22,7 @@
     </div>
 </section>
 <!-- Section: home End -->
-<!-- Section: Service -->
+<!-- Gallery Grid 3 -->
 <section>
     <div class="container pb-70">
         <div class="section-content">
@@ -34,14 +35,15 @@
                         <div id="gallery-holder-618422" class="isotope-layout grid-3 gutter-15 clearfix lightgallery-lightbox">
                             <div class="isotope-layout-inner">
                                 <!-- Isotope Item Start -->
-                                @foreach(var x in Model){
-                                <div class="isotope-item cat1">
+                                @foreach(var x in Model)
+                                {
+                                     <div class="isotope-item cat1">
                                     <div class="isotope-item-inner">
                                         <div class="tm-gallery">
                                             <div class="tm-gallery-inner">
                                                 <div class="thumb">
                                                     <a href="#">
-                                                        <img width="672" height="448" src="@x.BelgeImage" class="" alt="">
+                                                        <img width="672" height="448" src="/images/gallery/01.jpg" class="" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="tm-gallery-content-wrapper">
@@ -49,12 +51,12 @@
                                                         <div class="tm-gallery-content-inner">
                                                             <div class="icons-holder-inner">
                                                                 <div class="styled-icons icon-dark icon-circled icon-theme-colored1">
-                                                                        <a class="lightgallery-trigger styled-icons-item" data-exthumbimage="@x.BelgeAcilirImage" data-src="@x.BelgeAcilirImage" title="Gallery 1" href="@x.BelgeAcilirImage"><i class="fa fa-plus"></i></a>
+                                                                        <a class="lightgallery-trigger styled-icons-item" data-exthumbimage="@x.BelgeImage" data-src="@x.BelgeImage" title="@x.BelgeBaslik" href="@x.BelgeImage"><i class="fa fa-plus"></i></a>
 
                                                                 </div>
                                                             </div>
                                                             <div class="title-holder">
-                                                                <h5 class="title"><a href="#"></a></h5>
+                                                                <h5 class="title"><a href="#">@x.BelgeBaslik</a></h5>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -64,10 +66,10 @@
                                     </div>
                                 </div>
                                 }
+                               
                                 <!-- Isotope Item End -->
-                                <!-- Isotope Item Start -->
-                                
-                                <!-- Isotope Item End -->
+                               
+                               
 
                             </div>
                         </div>

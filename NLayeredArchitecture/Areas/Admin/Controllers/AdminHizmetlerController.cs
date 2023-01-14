@@ -2,6 +2,11 @@
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using NLayeredArchitecture.Areas.Admin.Models;
+using System.IO;
+using System;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace NLayeredArchitecture.Areas.Admin.Controllers
 {
@@ -24,20 +29,45 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         public IActionResult HizmetlerDüzenle(int id)
         {
             var values = hm.TGetByID(id);
-            return View(values);
+            HizmetlerDuzenle hizmet = new HizmetlerDuzenle()
+            {
+                HizmetlerID = values.HizmetlerID,
+                HizmetlerBaslik = values.HizmetlerBaslik,
+                HizmetlerAcıklama = values.HizmetlerAcıklama,
+                HizmetlerImage = values.HizmetlerImage         
+            };
+            return View(hizmet);
         }
 
         [HttpPost]
         [Route("HizmetlerDüzenle/{id}")]
-        public IActionResult HizmetlerDüzenle(Hizmetler p)
+        public async Task<IActionResult> HizmetlerDüzenle(HizmetlerDuzenle p)
         {
+            var imagename = "";
+            if (p.ImageFile != null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+                var extention = Path.GetExtension(p.ImageFile.FileName);
+                imagename = Guid.NewGuid() + extention;
+                var saveLocation = resource + "/wwwroot/HizmetResimleri/" + imagename;
+                var stream = new FileStream(saveLocation, FileMode.Create);
+                await p.ImageFile.CopyToAsync(stream);
+            }
+            Hizmetler hizmet = new Hizmetler()
+            {
+                HizmetlerID = p.HizmetlerID,
+                HizmetlerBaslik = p.HizmetlerBaslik,
+                HizmetlerAcıklama = p.HizmetlerAcıklama,
+                HizmetlerImage = imagename
 
-            hm.TUpdate(p);
+            };
+
+            hm.TUpdate(hizmet);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        [Route("HizmetEkle/{id}")]
+        [Route("HizmetEkle")]
         public IActionResult HizmetEkle()
         {
 
@@ -45,7 +75,7 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Route("HizmetEkle/{id}")]
+        [Route("HizmetEkle")]
         public IActionResult HizmetEkle(Hizmetler p)
         {
             hm.TAdd(p);

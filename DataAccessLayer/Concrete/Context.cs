@@ -23,6 +23,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Hizmetler> Hizmetlers { get; set; }
         public DbSet<Iletisim> Iletisims { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<iletisimFormu> iletisimFormus { get; set; }
 
     }
 }

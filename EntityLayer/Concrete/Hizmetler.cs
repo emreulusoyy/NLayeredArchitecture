@@ -13,5 +13,6 @@ namespace EntityLayer.Concrete
         public int HizmetlerID { get; set; }
         public string HizmetlerBaslik { get; set; }
         public string HizmetlerImage { get; set; }
+        public string HizmetlerAcıklama { get; set; }
     }
 }

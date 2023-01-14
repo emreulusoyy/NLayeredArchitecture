@@ -1,5 +1,4 @@
-﻿@using EntityLayer.Concrete
-@model Slider
+﻿@model NLayeredArchitecture.Areas.Admin.Models.AnaSlider
 @{
     ViewData["Title"] = "SliderDüzenle";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
@@ -8,12 +7,12 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-header border-0">
-            <h3 class="mb-0">Slider Güncelleme Sayfası</h3>
+            <h3 class="mb-0">Slayt Güncelleme Sayfası</h3>
         </div>
         <div class="card-body">
-            <form class="forms-sample" method="post">
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label>Slider ID</label>
+                    <label class="hidden">Slider ID</label>
                     @Html.TextBoxFor(x => x.SliderID, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
@@ -25,8 +24,9 @@
                     @Html.TextBoxFor(x => x.SliderAltBaslik, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <label>Fotoğraf Linki</label>
-                    @Html.TextBoxFor(x => x.SliderImage, new { @class = "form-control" })
+                    <label>Slayt Fotoğrafı</label>
+                    <input type="file" asp-for="ImageFile">
+
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
                 <button class="btn btn-dark">İptal</button>
@@ -34,5 +34,3 @@
         </div>
     </div>
 </div>
-
-

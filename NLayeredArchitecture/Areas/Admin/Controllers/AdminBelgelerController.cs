@@ -3,6 +3,10 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using NLayeredArchitecture.Areas.Admin.Models;
+using System.IO;
+using System;
+using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 
 namespace NLayeredArchitecture.Areas.Admin.Controllers
 {
@@ -29,6 +33,7 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
                 BelgeID = values.BelgeID,
                 BelgeImage = values.BelgeImage,
                 BelgeAcilirImage = values.BelgeAcilirImage,
+                BelgeBaslik = values.BelgeBaslik
                 
 
             };
@@ -39,10 +44,26 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("BelgelerDüzenle/{id}")]
-        public IActionResult BelgelerDüzenle(Belgeler p)
+        public async Task< IActionResult> BelgelerDüzenle(BelgelerDüzenle p)
         {
-
-            bm.TUpdate(p);
+            var imagename = "";
+            if (p.ImageFile != null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+                var extention = Path.GetExtension(p.ImageFile.FileName);
+                imagename = Guid.NewGuid() + extention;
+                var saveLocation = resource + "/wwwroot/BelgeResimleri/" + imagename;
+                var stream = new FileStream(saveLocation, FileMode.Create);
+                await p.ImageFile.CopyToAsync(stream);
+            }
+            Belgeler belge = new Belgeler()
+            {
+                BelgeID = p.BelgeID,
+                BelgeImage = imagename,
+                BelgeAcilirImage = p.BelgeAcilirImage,
+                BelgeBaslik = p.BelgeBaslik
+            };
+            bm.TUpdate(belge);
             return RedirectToAction("Index");
         }
 

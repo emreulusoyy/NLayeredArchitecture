@@ -47,6 +47,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("BelgeAcilirImage")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("BelgeBaslik")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("BelgeImage")
                         .HasColumnType("nvarchar(max)");
 
@@ -62,12 +65,6 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AltBaslik")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AnaBaslik")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("BlogBaslik")
                         .HasColumnType("nvarchar(max)");
 
@@ -75,6 +72,9 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BlogTarih")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DevaminiOku")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BlogID");
@@ -109,6 +109,9 @@ namespace DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("HizmetlerAcıklama")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HizmetlerBaslik")
                         .HasColumnType("nvarchar(max)");
@@ -266,6 +269,33 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("SliderID");
 
                     b.ToTable("Sliders");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.iletisimFormu", b =>
+                {
+                    b.Property<int>("İletişimID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Konu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mesaj")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SahısFirmaAdi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("İletişimID");
+
+                    b.ToTable("iletisimFormus");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

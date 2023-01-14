@@ -11,6 +11,7 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int BelgeID { get; set; }
+        public string BelgeBaslik { get; set; }
         public string BelgeImage { get; set; }
         public string BelgeAcilirImage { get; set; }
     }

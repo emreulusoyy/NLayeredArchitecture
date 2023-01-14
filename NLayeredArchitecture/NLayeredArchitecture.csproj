@@ -28,6 +28,12 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="wwwroot\HaberResimleri\" />
+    <Folder Include="wwwroot\HakkindaResimleri\" />
+    <Folder Include="wwwroot\HizmetlerImages\" />
+    <Folder Include="wwwroot\HizmetResimleri\" />
+    <Folder Include="wwwroot\BelgeResimleri\" />
+    <Folder Include="wwwroot\SloganResim\" />
   </ItemGroup>
 
 </Project>

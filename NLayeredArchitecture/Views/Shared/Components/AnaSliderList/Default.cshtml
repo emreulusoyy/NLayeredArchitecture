@@ -1,36 +1,43 @@
 ﻿@model List<EntityLayer.Concrete.Slider>
+<head>
+    <title>Carousel 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-				</div>
-				<div class="col-md-12">
-					<div class="slider-hero">
-						<div class="featured-carousel owl-carousel">
-							@foreach(var x in Model){
-							<div class="item">
-								<div class="work">
-									<div class="img d-flex align-items-center justify-content-center" style="background-image: @x.SliderImage">
-										<div class="text text-center">
-											<h3>@x.SliderBaslik</h3>
-										</div>
-									</div>
-								</div>
-							</div>
-							}
-						</div>
+    <link rel="stylesheet" href="~/slider/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/slider/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/slider/css/style.css">
+</head>
+<body>
+    	<div class="home-slider owl-carousel js-fullheight">
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    @foreach(var x in Model)
+    {
 
-<script src="~/carousel-10/js/jquery.min.js"></script>
-<script src="~/carousel-10/js/popper.js"></script>
-<script src="~/carousel-10/js/bootstrap.min.js"></script>
-<script src="~/carousel-10/js/owl.carousel.min.js"></script>
-<script src="~/carousel-10/js/main.js"></script>
+            <div class="slider-item js-fullheight">
+                <img src="/SliderImages/@x.SliderImage">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+                    <div class="col-md-12 ftco-animate">
+                        <div class="text w-100 text-center">
+                            <h3>@x.SliderAltBaslik</h3>
+                            <h1 class="mb-3">@x.SliderBaslik</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        }
+    </div>
+    <script src="~/slider/js/jquery.min.js"></script>
+    <script src="~/slider/js/popper.js"></script>
+    <script src="~/slider/js/bootstrap.min.js"></script>
+    <script src="~/slider/js/owl.carousel.min.js"></script>
+    <script src="~/slider/js/main.js"></script>
+</body>

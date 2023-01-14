@@ -6,12 +6,12 @@
         <div class="latest-posts pt-2">
             @foreach(var x in Model){
             <article class="post clearfix pb-0 mb-40">
-                <a class="post-thumb" href="#"><img src="@x.BlogImage" alt="Image"></a>
+                    <a class="post-thumb" href="#"><img src="/HaberResimleri/@x.BlogImage" alt="Image"></a>
                 <div class="post-right">
                     <div class="post-date">
                         <span class="entry-date text-theme-colored2 pt-0 text-uppercase mb-10">@x.BlogTarih</span>
                     </div>
-                    <p class="post-title m-0"><a href="#">@x.AnaBaslik</a></p>
+                    <p class="post-title m-0"><a href="#">@x.BlogBaslik</a></p>
                 </div>
             </article>
             }

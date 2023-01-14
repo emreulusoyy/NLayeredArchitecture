@@ -1,4 +1,4 @@
-﻿
+﻿@model List< EntityLayer.Concrete.Hizmetler>
 
 <!-- Section: page title -->
 <section class="page-title layer-overlay section-typo-light bg-img-center" data-tm-bg-img="/images/bg/bg1.jpg">
@@ -32,10 +32,10 @@
                         <div class="causes-item-current-style1 mb-md-30">
                             <div class="causes-item">
                                 <div class="causes-thumb">
-                                    <img src="@x.HizmetlerImage" alt="Image" class="w-100">
+                                    <img src="/HizmetResimleri/@x.HizmetlerImage" alt="Image" class="w-100">
                                 </div>
                                 <div class="causes-details">
-                                    <h5 class="causes-title mt-0 mb-20"><a href="/HizmetDetay">@x.HizmetlerBaslik</a></h5>
+                                    <h5 class="causes-title mt-0 mb-20"><a href="/ServicesDetails/Index/@x.HizmetlerID">@x.HizmetlerBaslik</a></h5>
                                     <div class="tm-sc-progress progress-item progress-item-current-style2 m-0">
                                     </div>
                                 </div>

@@ -1,53 +1,33 @@
 ﻿@model List<EntityLayer.Concrete.Blog>
-
-<section data-tm-bg-color="#fff">
-    <div class="section-content mt-lg--0 pt-lg--0">
-        <div class="container">
-            <div class="tm-sc-section-title section-title text-center mb-50">
-                <div class="row">
-                    <div class="col-lg-5 m-auto">
-                        <div class="title-wrapper mb-0">
-                            <div class="title-icon-img line-height-1">
-                                <img src="/images/icon.png" alt="Image">
-                            </div>
-                            <h2 class="title">Bizden Haberler</h2>
-                            <p class="paragraph mb-0">Sektöre ait haberlere bu alandan erişebilirsiniz. </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+<section class="bg-img-right-top bg-img-cover bg-img-no-repeat" data-tm-bg-img="/images/bg/bg1.png">
+    <div class="container">
+        <div class="section-content">
             <div class="row">
-                @foreach(var x in Model){
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-current-style1 mb-lg-30">
-                        <article class="post">
-                            <div class="entry-header">
-                                <div class="post-thumb">
-                                    <div class="post-thumb-inner">
-                                        <div class="thumb">
-                                                @*<img class="w-100" src="~/wwwroot/SliderImages/@x.BlogImage" alt="Image">*@
-                                                <img class="w-100" src="~/sliderimages/@x.BlogImage" />
-                                        </div>
+                @foreach (var x in Model)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="blog-current-style1 mb-lg-30">
+                            <article class="post">
+                                <div class="entry-header">
+                                    <div class="post-thumb">
+                                        <div class="post-thumb-inner">
+                                            <div class="thumb">
+                                                <img class="w-100" src="/HaberResimleri/@x.BlogImage" alt="Image">
+                                            </div>
 
-                                        <div class="meta-date">@x.BlogTarih</div>
+                                            <div class="meta-date">@x.BlogTarih</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="entry-content">
-                                <h6 class="entry-title mt-0"><a href="/HaberDetay">@x.BlogBaslik</a></h6>
-                                <div class="post-btn-readmore"><a href="/HaberDetay" class="btn btn-plain-text-with-arrow">Haberin Ddevamı</a></div>
-                            </div>
-                        </article>
+                                <div class="entry-content">
+                                    <h6 class="entry-title mt-0"><a href="/NewsDetails/Index/@x.BlogID">@x.BlogBaslik</a></h6>
+                                    <div class="post-btn-readmore"><a href="/NewsDetails/Index/@x.BlogID" class="btn btn-plain-text-with-arrow">Haberin Ddevamı</a></div>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                </div>
                 }
             </div>
         </div>
-    </div>
-    <div class="tm-floating-objects">
-        <span class="floating-object-1" data-tm-bg-img="/images/shape/blog-01.png" data-tm-width="185" data-tm-height="253" data-tm-top="auto" data-tm-bottom="-6" data-tm-left="75" data-tm-opacity="1"></span>
-        <span class="floating-object-2 tm-animation-floating" data-tm-bg-img="/images/shape/blog-02.png" data-tm-width="90" data-tm-height="80" data-tm-top="440" data-tm-bottom="auto" data-tm-left="180" data-tm-opacity="1"></span>
-        <span class="floating-object-3" data-tm-bg-img="/images/shape/blog-03.png" data-tm-width="136" data-tm-height="201" data-tm-top="auto" data-tm-bottom="0" data-tm-right="100" data-tm-left="auto" data-tm-opacity="1"></span>
     </div>
 </section>

@@ -6,6 +6,7 @@ namespace NLayeredArchitecture.Areas.Admin.Models
     {
         public int BelgeID { get; set; }
         public string BelgeImage { get; set; }
+        public string BelgeBaslik { get; set; }
         public string BelgeAcilirImage { get; set; }
         public IFormFile ImageFile { get; set; }
 

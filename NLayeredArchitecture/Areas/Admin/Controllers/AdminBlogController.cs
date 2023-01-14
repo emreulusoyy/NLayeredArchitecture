@@ -30,11 +30,13 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
             BlogDuzenle blog = new BlogDuzenle()
             {
                 BlogID = values.BlogID,
-                AltBaslik = values.AltBaslik,
-                AnaBaslik = values.AnaBaslik,
                 BlogBaslik = values.BlogBaslik,
                 BlogTarih = values.BlogTarih,
-             
+                DevaminiOku = values.DevaminiOku,
+                BlogImage = values.BlogImage
+               
+
+
             };
 
             return View(blog);
@@ -50,18 +52,18 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
                 var resource = Directory.GetCurrentDirectory();
                 var extention = Path.GetExtension(p.ImageFile.FileName);
                 imagename = Guid.NewGuid() + extention;
-                var saveLocation = resource + "/wwwroot/SliderImages/" + imagename;
+                var saveLocation = resource + "/wwwroot/HaberResimleri/" + imagename;
                 var stream = new FileStream(saveLocation, FileMode.Create);
                 await p.ImageFile.CopyToAsync(stream);
             }
             Blog blog = new Blog()
             {
                 BlogID = p.BlogID,
-                AltBaslik = p.AltBaslik,
-                AnaBaslik = p.AnaBaslik,
                 BlogBaslik = p.BlogBaslik,
                 BlogTarih = p.BlogTarih,
+                DevaminiOku = p.DevaminiOku,
                 BlogImage = imagename
+                
                 
             };
 
@@ -79,18 +81,36 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        [Route("BlogEkle/{id}")]
+        [Route("BlogEkle")]
         public IActionResult BlogEkle()
         {
+
 
             return View();
         }
 
         [HttpPost]
-        [Route("BlogEkle/{id}")]
-        public IActionResult BlogEkle(Blog p)
+        [Route("BlogEkle")]
+        public async Task< IActionResult> BlogEkle(BlogDuzenle p)
         {
-            bm.TAdd(p);
+            var imagename = "";
+            Blog b = new Blog();
+            if(p.BlogImage!= null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+                var extention = Path.GetExtension(p.ImageFile.FileName);
+                imagename = Guid.NewGuid() + extention;
+                var saveLocation = resource + "/wwwroot/HaberEkleResimleri/" + imagename;
+                var stream = new FileStream(saveLocation, FileMode.Create);
+                await p.ImageFile.CopyToAsync(stream);
+            }
+            b.BlogBaslik = p.BlogBaslik;
+            b.BlogID = p.BlogID;
+            b.DevaminiOku = p.DevaminiOku;
+            b.BlogImage = p.BlogImage;
+            b.BlogTarih = p.BlogTarih;
+
+            bm.TAdd(b);
             return RedirectToAction("Index");
 
         }
