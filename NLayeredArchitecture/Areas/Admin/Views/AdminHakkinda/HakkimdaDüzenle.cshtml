@@ -15,9 +15,9 @@
         </div>
         <div class="card-body">
             <form class="forms-sample" method="post" enctype="multipart/form-data">
+                @Html.HiddenFor(x=>x.HakkındaImage)
                 <div class="form-group">
-                    <label>Hakkında ID</label>
-                    @Html.TextBoxFor(x => x.HakkındaID, new { @class = "form-control" })
+                    @Html.HiddenFor(x => x.HakkındaID, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     <label>Başlık</label>

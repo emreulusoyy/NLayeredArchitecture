@@ -12,10 +12,9 @@
         </div>
         <div class="card-body">
             <form class="forms-sample" method="post" enctype="multipart/form-data">
-
+                @Html.HiddenFor(x=>x.BlogImage)
                 <div class="form-group">
-                    <label>Haber ID</label>
-                    @Html.TextBoxFor(x => x.BlogID, new { @class = "form-control" })
+                    @Html.HiddenFor(x => x.BlogID, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     <label>Haber Başlığı</label>

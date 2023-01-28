@@ -15,31 +15,31 @@
                         </div>
                     </div>
                 </div>
-               
-                <div class="col-lg-8">                                        
+
+                <div class="col-lg-8">
                     <div class="causes-carousel-current-style1">
                         <div class="tm-owl-carousel-2col owl-carousel owl-theme" data-autoplay="false" data-loop="true" data-duration="6000" data-smartspeed="300" data-margin="30" data-stagepadding="20" data-nav="true">
                             @foreach (var x in Model)
                             {
-                            <div class="item">
-                                <div class="causes-item-current-style1">
-                                    <div class="causes-item">
-                                        <div class="causes-thumb">
-                                            <img src="/HizmetResimleri/@x.HizmetlerImage" alt="Image" class="w-100">
-                                        </div>
-                                        <div class="causes-details">
+                                <div class="item">
+                                    <div class="causes-item-current-style1">
+                                        <div class="causes-item">
+                                            <div class="causes-thumb">
+                                                <img src="/HizmetResimleri/@x.HizmetlerImage" alt="Image" class="w-100" style="height:230px">
+                                            </div>
+                                            <div class="causes-details">
                                                 <h5 class="causes-title mt-0 mb-20"><a href="/ServicesDetails/Index/@x.HizmetlerID">@x.HizmetlerBaslik</a></h5>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             }
                         </div>
                     </div>
-                    
+
                 </div>
-           
+
             </div>
         </div>
     </div>

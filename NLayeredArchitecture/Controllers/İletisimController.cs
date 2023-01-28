@@ -3,11 +3,15 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NLayeredArchitecture.Controllers
 {
+    [AllowAnonymous]
     public class İletisimController : Controller
     {
+       
+
         public IActionResult Index()
         {
             return View();

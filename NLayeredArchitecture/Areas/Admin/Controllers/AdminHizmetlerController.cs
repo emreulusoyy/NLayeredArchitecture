@@ -53,6 +53,10 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
                 var stream = new FileStream(saveLocation, FileMode.Create);
                 await p.ImageFile.CopyToAsync(stream);
             }
+            if (p.HizmetlerImage != null)
+            {
+                imagename = p.HizmetlerImage;
+            }
             Hizmetler hizmet = new Hizmetler()
             {
                 HizmetlerID = p.HizmetlerID,
@@ -88,6 +92,10 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
                 var saveLocation = resource + "/wwwroot/HizmetResimleri/" + imagename;
                 var stream = new FileStream(saveLocation, FileMode.Create);
                 await p.ImageFile.CopyToAsync(stream);
+            }
+            if (p.HizmetlerImage != null)
+            {
+                imagename = p.HizmetlerImage;
             }
             b.HizmetlerBaslik = p.HizmetlerBaslik;
             b.HizmetlerID = p.HizmetlerID;

@@ -56,6 +56,10 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
                 var stream = new FileStream(saveLocation, FileMode.Create);
                 await p.ImageFile.CopyToAsync(stream);
             }
+            if (p.BelgeImage != null)
+            {
+                imagename = p.BelgeImage;
+            }
             Belgeler belge = new Belgeler()
             {
                 BelgeID = p.BelgeID,
@@ -97,6 +101,10 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
                 var saveLocation = resource + "/wwwroot/BelgeResimleri/" + imagename;
                 var stream = new FileStream(saveLocation, FileMode.Create);
                 await p.ImageFile.CopyToAsync(stream);
+            }
+            if (p.BelgeImage != null)
+            {
+                imagename = p.BelgeImage;
             }
             b.BelgeBaslik = p.BelgeBaslik;
             b.BelgeID = p.BelgeID;

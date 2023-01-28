@@ -32,13 +32,7 @@
 
                     <div class="widget widget_meta">
                         <h4 class="widget-title widget-title-line-bottom line-bottom-theme-colored1">Hizmetlerimiz</h4>
-                        <ul>
-                            <li><a href="#">Hava Analizleri</a></li>
-                            <li><a href="#">Atık Su Analizleri</a></li>
-                            <li><a href="#">Toprak Analizleri</a></li>
-                            <li><a href="#">Atık Yağ Analizleri</a></li>
-                            <li><a href="#">Gürültü Analizi</a></li>
-                        </ul>
+                        @await Component.InvokeAsync("HaberBasliklariList")
                     </div>
 
                     <div class="widget widget_text text-center">

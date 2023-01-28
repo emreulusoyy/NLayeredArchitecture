@@ -6,9 +6,12 @@ using System.Net;
 using System.Text;
 using System;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NLayeredArchitecture.Controllers
 {
+    [AllowAnonymous]
+
     public class ContactController : Controller
     {
         // [HttpPost, ValidateAntiForgeryToken]

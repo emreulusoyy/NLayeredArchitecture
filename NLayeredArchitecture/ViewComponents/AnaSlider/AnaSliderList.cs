@@ -9,8 +9,9 @@ namespace NLayeredArchitecture.ViewComponents.AnaSlider
         SliderManager sm = new SliderManager(new EfSliderDal());
         public IViewComponentResult Invoke()
         {
+
             var values = sm.TGetList();
-            return View(values);    
+            return View(values);
         }
     }
 }

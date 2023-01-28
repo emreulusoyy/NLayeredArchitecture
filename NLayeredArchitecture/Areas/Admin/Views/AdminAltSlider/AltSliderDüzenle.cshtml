@@ -13,8 +13,8 @@
         <div class="card-body">
             <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label>Slogan ID</label>
-                    @Html.TextBoxFor(x => x.AltSliderID, new { @class = "form-control" })
+                    @Html.HiddenFor(x=>x.SliderImage)
+                    @Html.HiddenFor(x => x.AltSliderID, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     <label>Başlık</label>

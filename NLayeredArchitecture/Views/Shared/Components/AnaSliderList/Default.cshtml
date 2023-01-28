@@ -1,43 +1,49 @@
 ﻿@model List<EntityLayer.Concrete.Slider>
-<head>
-    <title>Carousel 01</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="~/slider/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/slider/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
-    <link rel="stylesheet" href="~/slider/css/style.css">
-</head>
-<body>
-    	<div class="home-slider owl-carousel js-fullheight">
+    <div class="home-slider owl-carousel js-fullheight">
 
-    @foreach(var x in Model)
-    {
-
-            <div class="slider-item js-fullheight">
-                <img src="/SliderImages/@x.SliderImage">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-                    <div class="col-md-12 ftco-animate">
-                        <div class="text w-100 text-center">
-                            <h3>@x.SliderAltBaslik</h3>
-                            <h1 class="mb-3">@x.SliderBaslik</h1>
+        @foreach (var x in Model)
+        {
+            <div class="home-slider owl-carousel js-fullheight">
+                <div class="slider-item js-fullheight" style="background-image:url(/SliderImages/@x.SliderImage); ">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+                            <div class="col-md-12 ftco-animate">
+                                <div class="img d-flex align-items-center justify-content-center">
+                                    <div class="text text-center">
+                                        <h1>@x.SliderBaslik</h1>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+               
             </div>
-        </div>
-    
-    
+
+
+           @* <div class="slider-item js-fullheight">
+                <img style="background-image: url(/SliderImages/@x.SliderImage);width:100%; height:100%;">
+                
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+                        <div class="col-md-12 ftco-animate">
+                            <div class="img d-flex align-items-center justify-content-center" >
+                                <div class="text text-center">
+                                    <h2>@x.SliderBaslik</h2>
+                                    <h2>@x.SliderAltBaslik</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+
         }
     </div>
-    <script src="~/slider/js/jquery.min.js"></script>
-    <script src="~/slider/js/popper.js"></script>
-    <script src="~/slider/js/bootstrap.min.js"></script>
-    <script src="~/slider/js/owl.carousel.min.js"></script>
-    <script src="~/slider/js/main.js"></script>
-</body>
+

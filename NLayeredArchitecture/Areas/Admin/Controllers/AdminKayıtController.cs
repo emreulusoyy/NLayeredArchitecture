@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NLayeredArchitecture.Areas.Admin.Models;
@@ -8,6 +9,7 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/AdminKayıt")]
+    [AllowAnonymous]
     public class AdminKayıtController : Controller
     {
         private readonly UserManager<Kullanici> _userManager;
@@ -42,7 +44,7 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Login");
+                    return RedirectToAction("Index", "GirisPaneli");
                 }
                 else
                 {

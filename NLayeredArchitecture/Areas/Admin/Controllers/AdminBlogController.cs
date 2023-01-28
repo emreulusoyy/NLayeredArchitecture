@@ -56,6 +56,10 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
                 var stream = new FileStream(saveLocation, FileMode.Create);
                 await p.ImageFile.CopyToAsync(stream);
             }
+            if (p.BlogImage != null)
+            {
+                imagename = p.BlogImage;
+            }
             Blog blog = new Blog()
             {
                 BlogID = p.BlogID,

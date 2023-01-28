@@ -12,9 +12,9 @@
         </div>
         <div class="card-body">
             <form class="forms-sample" method="post">
+
                 <div class="form-group">
-                    <label>İletişim ID</label>
-                    @Html.TextBoxFor(x => x.IletisimID, new { @class = "form-control" })
+                    @Html.HiddenFor(x => x.IletisimID, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     <label>Telefon</label>

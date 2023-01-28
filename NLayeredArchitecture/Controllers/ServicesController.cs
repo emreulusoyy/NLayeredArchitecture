@@ -1,9 +1,11 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace NLayeredArchitecture.Controllers
 {
+    [AllowAnonymous]
     public class ServicesController : Controller
     {
         HizmetlerManager hm = new HizmetlerManager(new EfHizmetlerDal());

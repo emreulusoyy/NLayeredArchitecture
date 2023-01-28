@@ -54,6 +54,10 @@ namespace NLayeredArchitecture.Areas.Admin.Controllers
                 var stream = new FileStream(saveLocation, FileMode.Create);
                 await p.ImageFile.CopyToAsync(stream);
             }
+            if (p.HakkındaImage != null)
+            {
+                imagename = p.HakkındaImage;
+            }
             Hakkında blog = new Hakkında()
             {
                 HakkındaID = p.HakkındaID,

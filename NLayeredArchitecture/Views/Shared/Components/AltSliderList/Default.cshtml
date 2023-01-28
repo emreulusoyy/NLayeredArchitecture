@@ -1,13 +1,11 @@
 ﻿@model List<EntityLayer.Concrete.AltSlider>
 @foreach(var x in Model)
 {
-    
-
-<section class="text-center bg-img-cover bg-img-center-top" data-tm-bg-img="/SloganResim/@x.SliderImage">
+    <section style="width:100%; height:100%;" class="text-center bg-img-cover bg-img-center-top" data-tm-bg-img="/SloganResim/@x.SliderImage">
     <div class="container">
         <div class="row">
             <div class="col-xl-8 m-auto text-center">
-                    <div class="m-auto mb-25" data-tm-width="75" data-tm-height="63" data-tm-bg-img="/SloganResim/@x.SliderImage"></div>
+                    <div style="width:100%; height:100%;" data-tm-width="100" data-tm-height="100" data-tm-bg-img="/SloganResim/@x.SliderImage"></div>
                 <h2 class="text-white rs-divider-title font-weight-900 mb-40 mt-0">@x.SliderBaslik </h2>
             </div>
         </div>
